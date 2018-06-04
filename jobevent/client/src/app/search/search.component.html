@@ -1,0 +1,86 @@
+
+<div id="search">
+
+
+<nav id="nav" class="navbar  navbar-dark ">
+    <a class=" navbar-brand text-white" >Bienvenue {{ auth.username }}</a>
+    
+    <a class="navbar-brand"routerLink="/propose" >Ajouter +</a>  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+         <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="navbar-collapse collapse" id="collapsingNavbar">
+         <ul class="navbar-nav">
+             <li class="nav-item active">
+                 <a class=" nav-link" routerLink="/search">Accueil<span class="sr-only">Home</span></a>
+             </li>
+             <li class="nav-item">
+                 <a class=" nav-link" routerLink="/myProposition">Mes Proposition</a>
+             </li>
+             <li class="nav-item">
+                 <a class=" nav-link" (click)="auth.logOut()" routerLink="/connexion" >Déconnexion</a>
+             </li>
+         </ul>
+         <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+                 <a class=" nav-link"  routerLink="/useredit" >Modifier Profil</a>
+             </li>
+         </ul>
+     </div>
+ </nav>
+<div  class="mt-5 p-lg-5 p-md-5 p-sm-2">
+<div class="col-12 row  card-header">
+    <h1>JOB</h1>
+    
+            
+</div>
+
+<div id="filter" class="col-12 row  p-3 d-flex justify-content-around ">
+    <div class="col-12 p-lg-3 p-md-3 p-sm-1 row card-header ">
+        <h2>Tri</h2>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 row">
+        <label for="">Ville :</label>
+        <input class="form-control" [(ngModel)]="ville" type="text">
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 row">
+        <label for="">Poste :</label>
+        <input class="form-control" [(ngModel)]="poste" type="text">
+    </div>
+
+</div>
+<div class="col-12 row d-flex justify-content-around   " *ngIf="offres">
+  <div id="form" class="col-lg-5 col-md-5 col-sm-12 m-3 card " *ngFor="let offre of offres | jobFilter: [ville, poste]">
+       
+        <div class="col-12  m-0 p-0 card-header">
+         <h3 class="col-12 m-0 p-0">{{ offre.username }}</h3>
+        </div>
+    <div class=" col-12 d-flex justify-content-start">
+        <h2 class="col-12 card-header"> {{ offre.entreprise }}</h2>
+    </div>
+    <div class="card-header">
+            <div class="col-12 row d-flex justify-content-around">
+                    <p class="col-lg-6 col-md-6 col-sm-12">Date: {{ offre.date }}</p>
+                    <p class="col-lg-6 col-md-6 col-sm-12">Ville: {{ offre.ville }}</p>
+                </div>
+                <div class="col-12 row d-flex justify-content-around">
+                    <p class="col-lg-6 col-md-6 col-sm-12">E-mail: {{ offre.email }}</p>
+                    <p class="col-lg-6 col-md-6 col-sm-12">Tel: {{offre.__v}}{{ offre.tel }}</p>
+                </div>
+            
+                <div class="col-12 row d-flex justify-content-start">
+            
+                    <p class="col-lg-6 col-md-6 col-sm-12">Poste: {{ offre.poste }}</p>
+                </div>
+    </div>
+
+    <div class="col-12  ">
+        <p class="col-12">Déscription :</p>
+        <p id="dec" class="col-12 ">{{ offre.description}}</p>
+    </div>
+
+
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,78 @@
+<!-- <div class="" style="display:flex; justify-content:start; background-color:blueviolet;text-decoration: none;  color:white">
+    <div class="dropdown">
+        <button class="btn btn-purple dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+
+            <span>welcome</span> {{ auth.username }}
+
+        </button>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a routerLink="/search" class="dropdown-item" href="#">Home</a>
+
+            <a routerLink="/myProposition" class="dropdown-item" href="#">mes proposition</a>
+            <a class="dropdown-item" (click)="auth.logOut()" routerLink="/connexion">deconnexion</a>
+            <a routerLink="/useredit" class="dropdown-item">EDIT</a>
+        </div>
+    </div>
+</div> -->
+<div id="user-propo" >
+<nav id="nav" class="navbar navbar-dark ">
+    <a class="navbar-brand text-white" >Bienvenue {{ auth.username }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+         <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="navbar-collapse collapse" id="collapsingNavbar">
+         <ul class="navbar-nav">
+             <li class="nav-item active">
+                 <a class="nav-link" routerLink="/search">Accueil <span class="sr-only">Home</span></a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link" routerLink="/myProposition">Mes Proposition</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link" (click)="auth.logOut()" routerLink="/connexion" >Déconnexion</a>
+             </li>
+         </ul>
+         <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+                 <a class="nav-link"  routerLink="/useredit" >Modifier Profil</a>
+             </li>
+         </ul>
+     </div>
+ </nav>
+
+<div class="col-12 row p-lg-5 p-md-5 p-sm-0  d-flex justify-content-around" *ngIf="offreService.myOffres">
+    <div id="form" class="col-lg-5 col-md-5 col-sm-12 m-3 card " *ngFor="let offre of offreService.myOffres">
+        <div class="col-12  m-0 p-0 card-header">
+                <h3 class="col-12 m-0 p-0">{{ offre.username }}</h3>
+               </div>
+           <div class=" col-12 d-flex justify-content-start">
+               <h2 class="col-12 card-header"> {{ offre.entreprise }}</h2>
+           </div>
+           <div class="card-header">
+                   <div class="col-12 row d-flex justify-content-around">
+                           <p class="col-lg-6 col-md-6 col-sm-12">Date: {{ offre.date }}</p>
+                           <p class="col-lg-6 col-md-6 col-sm-12">Ville: {{ offre.ville }}</p>
+                       </div>
+                       <div class="col-12 row d-flex justify-content-around">
+                           <p class="col-lg-6 col-md-6 col-sm-12">E-mail: {{ offre.email }}</p>
+                           <p class="col-lg-6 col-md-6 col-sm-12">Tel: {{offre.__v}}{{ offre.tel }}</p>
+                       </div>
+                   
+                       <div class="col-12 row d-flex justify-content-start">
+                   
+                           <p class="col-lg-6 col-md-6 col-sm-12">Poste: {{ offre.poste }}</p>
+                       </div>
+           </div>
+       
+           <div class="col-12  ">
+               <p class="col-12">Déscription :</p>
+               <p id="dec" class="col-12 ">{{ offre.description}}</p>
+           </div>
+        <button class="buton form-control col-12 m-1" (click)='offreService.removeMyOffres(auth.username)'>Supprimer</button>
+        <button class="buton form-control col-12 m-1 mb-3" (click)="onSelect(offre)" routerLink="/offreedit">Modifier</button>
+    </div>
+
+</div>
+</div>

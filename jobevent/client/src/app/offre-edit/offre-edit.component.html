@@ -1,0 +1,64 @@
+<div id="offre-edit">
+<nav id="nav" class="navbar navbar-dark bg-">
+    <a class="navbar-brand text-white" >Bienvenue    {{ auth.username }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+         <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="navbar-collapse collapse" id="collapsingNavbar">
+         <ul class="navbar-nav">
+             <li class="nav-item active">
+                 <a class="nav-link" routerLink="/search">Acceuil <span class="sr-only">Home</span></a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link" routerLink="/myProposition">Mes Proposition</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link" (click)="auth.logOut()" routerLink="/connexion" >Déconnexion</a>
+             </li>
+         </ul>
+         <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+                 <a class="nav-link"  routerLink="/useredit" >Modifier Profil</a>
+             </li>
+         </ul>
+     </div>
+ </nav>
+<div id="propose">
+
+
+<div class=" p-lg-5 p-md-5 p-sm-0" style="display:flex; justify-content:center;">
+   
+    <form id="form"  class="col-lg-12 col-md-12 col-sm-12 mt-5 p-lg-5 p-md-5 p-sm-0"  style="display:flex;flex-direction:column; justify-content:start ;  align-items: center;" novalidate>
+            <div class="col-12 row card-header">
+                    <h1>Modifier Job</h1>
+                </div>
+        <div class="col-12 m-2 row justify-content-center">
+          <label class="col-12" for=""> Entreprise* :</label>
+          <input class="form-control col-12" name="entreprise" [(ngModel)]="offreData.entreprise"   type="text" value="" required>
+      </div>
+      <div class="col-12 m-2 row justify-content-center">
+            <label class="col-12" for="poste"> Ville* :</label>
+            <input class="form-control col-12" name="ville" type="text" [(ngModel)]="offreData.ville"   value=""required>
+        </div>
+      <div class="col-12 m-2 row justify-content-center">
+          <label class="col-12" for="email">E-mail* :</label>
+          <input class="form-control col-12" name="email" type="email"  [(ngModel)]="offreData.email"  id=""required>
+      </div>
+      <div class="col-12 m-2 row justify-content-center">
+          <label class="col-12" for="tel">Tel* :</label>
+          <input class="form-control col-12" name="tel" type="text"  [(ngModel)]="offreData.tel"  value=""required>
+      </div>
+      <div class="col-12 m-2 row justify-content-center">
+          <label class="col-12" for="poste">Poste Proposer* :</label>
+          <input class="form-control col-12" name="poste" type="text"  [(ngModel)]="offreData.poste"  value=""required>
+      </div>
+      <div class="col-12 m-2 row justify-content-center">
+        <label class="col-12" for="desription">Déscription Emploie* :</label>
+        <textarea class="form-control col-12" name="description"  [(ngModel)]="offreData.description"  value=""required></textarea>
+    </div>
+  <p>* = champ obligatoir</p>
+      <input class="buton form-control m-1" (click)="editOffre()" routerLink="/search" type="submit" value="envoyer"   >
+    </form>
+</div>
+</div>
+</div>

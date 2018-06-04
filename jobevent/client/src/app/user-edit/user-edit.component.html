@@ -1,0 +1,63 @@
+
+
+  <div id="edit">
+
+
+  <nav id="nav" class="navbar  navbar-dark ">
+    <a class="navbar-brand text-white" >Bienvenue {{ auth.username }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+         <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="navbar-collapse collapse" id="collapsingNavbar">
+         <ul class="navbar-nav">
+             <li class="nav-item active">
+                 <a class="nav-link" routerLink="/search">Acceuil <span class="sr-only">Home</span></a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link" routerLink="/myProposition">Mes Proposition</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link" (click)="auth.logOut()" routerLink="/connexion" >Déconnexion</a>
+             </li>
+         </ul>
+         <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+                 <a class="nav-link"  routerLink="/useredit" >Modifier Profil</a>
+             </li>
+         </ul>
+     </div>
+ </nav>
+
+
+<div class="col-12 row justify-content-center">
+
+
+<div id="form"  class="col-lg-10 col-md-10 col-sm-12 mt-5 p-lg-5 p-md-5 p-sm-0 row  d-flex justify-content-center " >
+        <div class=" col-12 card-header mt-5  row ">
+                <h1 class="">Modifier Profil</h1>
+                </div>
+    <div class="col-12  row d-flex justify-content-center">
+      <label class="col-12" for="lastName">Nom :</label>
+      <input name="lastName" class="form-control col-12" type="text" [(ngModel)]="userData.lastName"  required>
+  </div>
+  <div class="col-12 mb-2   row justify-content-center">
+      <label class="col-12" for="firstName">Prenom :</label>
+      <input  name="firstName" class="form-control col-12" type="text" [(ngModel)]="userData.firstName" required>
+  </div>
+  <div class="col-12 mb-2   row justify-content-center">
+      <label class="col-12" for="email">E-mail :</label>
+      <input  name="email" class="form-control col-12" type="email" [(ngModel)]="userData.email" name="" required>
+  </div>
+  <div class="col-12 mb-2   row justify-content-center">
+      <label class="col-12" for="password">Mot de passe</label>
+      <input  name="password" class="form-control col-12" type="text" [(ngModel)]="userData.password" required>
+  </div>
+  <div class="col-12 mb-2   row justify-content-center">
+    <input class="buton form-control col-12 m-1" type="submit" (click)="editUser()" value="Sauvegarder" routerLink="/connexion" >
+    <input class="buton form-control col-12 m-1 " type="submit" (click)="user.deleteUser(auth.username)" value="Supprimer">
+  </div>
+
+</div>
+</div>
+
+</div>

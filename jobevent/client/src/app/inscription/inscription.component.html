@@ -1,0 +1,37 @@
+<div id="inscription" class="col-12 p-3">
+<div class="col-12 row d-flex  align-items-center justify-content-around">
+      <div class="col-lg-6 col-md-12 col-sm-12" >
+        <img class=" img-fluid" src="assets/image/job.png" alt="">
+        <p class="col-lg-10 col-md-10 col-sm-12 text-center">Bonjour bienvenue sur l'application JonEvent cette application sert a proposer ou recherche des job dans l'événementiel pour tous types de profils (technicien son, technicien lumière, barman, décorateur, régisseur, ect) donc si vous rechercher ou avais des offre d'emploie en tant que intermitent du spectacle inscrivez-vous.</p>
+      </div>
+      <form id="form" [formGroup]="form" class="col-lg-6 col-md-12 col-sm-12" (ngSubmit)="addUser()">
+        <div class="card-header">
+            <h3 class="mb-0">Inscription</h3>
+        </div>
+      <div class="card-body">
+        <div class="col-12 m-1 row justify-content-center">
+            <label class="col-12" for="lastName">Nom :</label>
+            <input  name="lastName" class="form-control rounded-0 col-12" type="text" formControlName="lastName" value="" required>
+        </div>
+        <div class="col-12 m-1 row justify-content-center">
+            <label class="col-12" for="firstName">Prenom :</label>
+            <input  name="firstName" class="form-control rounded-0 col-12" type="text" formControlName="firstName" value=""required>
+        </div>
+        <div class="col-12 m-1 row justify-content-center">
+            <label class="col-12" for="email">E-mail :</label>
+            <input  name="email" class="form-control rounded-0 col-12" type="email" formControlName="email" name="" id=""required>
+        </div>
+        <div class="col-12 m-1 row justify-content-center">
+            <label class="col-12" for="userName">Pseudo</label>
+            <input   name="userName" class="form-control rounded-0 col-12" type="text" formControlName="userName" value=""required>
+        </div>
+        <div class="col-12 m-1 row justify-content-center">
+            <label class="col-12" for="password">Mot de passe</label>
+            <input  name="password" class="form-control rounded-0 col-12" type="text" formControlName="password" value=""required>
+        </div>
+        <input class="buton form-control m-2" type="submit" value="Envoyer">
+        <input class="buton form-control m-2" type="submit" routerLink="/connexion" value="Connexion">
+    </div>
+</form>  
+</div>
+</div>
